@@ -26,7 +26,3 @@
 250,"Retail Sales",,1700
 260,"Recruiting",,1700
 270,"Payroll",,1700
-
-27 rows selected. 
-
-SQL> spool "\home\oracle\HR_datasets\employees.csv"
