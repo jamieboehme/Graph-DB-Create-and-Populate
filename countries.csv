@@ -24,7 +24,3 @@
 "US","United States of America",2
 "ZM","Zambia",4
 "ZW","Zimbabwe",4
-
-25 rows selected. 
-
-SQL> spool "\home\oracle\HR_datasets\departments.csv"
