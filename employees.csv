@@ -106,7 +106,3 @@
 204,"Hermann","Baer","HBAER","515.123.8888",07-JUN-94,"PR_REP",10000,,101,70
 205,"Shelley","Higgins","SHIGGINS","515.123.8080",07-JUN-94,"AC_MGR",12000,,101,110
 206,"William","Gietz","WGIETZ","515.123.8181",07-JUN-94,"AC_ACCOUNT",8300,,205,110
-
-107 rows selected. 
-
-SQL> spool "\home\oracle\HR_datasets\job_history.csv"
