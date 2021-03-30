@@ -18,7 +18,3 @@
 "MK_REP","Marketing Representative",4000,9000
 "HR_REP","Human Resources Representative",4000,9000
 "PR_REP","Public Relations Representative",4500,10500
-
-19 rows selected. 
-
-SQL> spool "\home\oracle\HR_datasets\locations.csv"
