@@ -9,7 +9,3 @@
 176,24-MAR-98,31-DEC-98,"SA_REP",80
 176,01-JAN-99,31-DEC-99,"SA_MAN",80
 200,01-JUL-94,31-DEC-98,"AC_ACCOUNT",90
-
-10 rows selected. 
-
-SQL> spool "\home\oracle\HR_datasets\jobs.csv"
