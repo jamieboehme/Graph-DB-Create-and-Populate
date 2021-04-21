@@ -21,9 +21,13 @@ https://neo4j.com/developer/cypher/
 2. Upload all CSVs to your own personal Github repository or local location that can be accessed to import the data into Neo4j.
 3. Creat a new, local database by selecting “Add” > “Local DBMS” within Neo4j Desktop application
 4. Copy and paste the "HR Cypher Script" in the New Window and Query editor that has opened. You can choose to execute this script all at once, or in a logical order. This script includes the following:
+
    4a. Generats node labels for each table in the HR database and loads individual nodes (records) corresponding to each node label leveraging the CSV exports from Step 1
+
    4b.	Creats indexes on each node property for which relationships should be made. Note: Indexes on node properties are similar to indexing tables in a relational database environment for primary/foreign keys. This step optimizes the environment and speed to query specific nodes and their relationships.
+
    4c.	Develop relationships among node properties
+
    4d.	Explore the database using custom Cypher queries
 
 
@@ -40,7 +44,6 @@ https://neo4j.com/developer/cypher/
 
   Neo4j Glossary of Terms:  
 https://neo4j.com/developer/relational-to-graph-modeling/ 
-![image](https://user-images.githubusercontent.com/62729630/115483710-ec28a900-a216-11eb-8d01-04fb3bf357c6.png)
 
 How to import CSVs to Neo4j:
 https://neo4j.com/developer/guide-importing-data-and-etl/
