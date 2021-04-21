@@ -34,18 +34,18 @@ https://neo4j.com/developer/cypher/
 
 ## Links to Helpful Content for Neo4j and Cypher Novices:
 
-Definition and context of Graph:
+- Definition and context of Graph:
 https://en.wikipedia.org/wiki/Graph_database#:~:text=Edges%2C%20also%20termed%20graphs%20or,either%20be%20directed%20or%20undirected 
 
-Neo4j: The Top 5 Use Cases for Graph Databases:
+- Neo4j: The Top 5 Use Cases for Graph Databases:
 https://neo4j.com/lp/top-use-cases-graph-databases-white-paper/?utm_program=na-prospecting&utm_source=google&utm_medium=cpc&utm_campaign=na-search-graph-databases&utm_adgroup=graph-databases-use-cases&gclid=CjwKCAjwjbCDBhAwEiwAiudBy_EdBJHHAKob9eD6A1idS0KBjfyiHW3YzKavkrOB8hOOszJbTZQBFBoCrsEQAvD_BwE 
 
-Neo4j Key Features:
+- Neo4j Key Features:
 https://neo4j.com/developer/relational-to-graph-modeling/#org-domain-model 
 
-Neo4j Glossary of Terms:
+- Neo4j Glossary of Terms:
 https://neo4j.com/developer/relational-to-graph-modeling/ 
 
-How to import CSVs to Neo4j:
+- How to import CSVs to Neo4j:
 https://neo4j.com/developer/guide-importing-data-and-etl/
 
