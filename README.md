@@ -16,10 +16,11 @@ https://neo4j.com/developer/cypher/
 
 ## Steps for Development:
 
-*If you would like to leverage your own HR datasets sourced from Oracle's Developer Environment, then begin at step 1. If you would like to leverage the CSV files already provided from the HR Database in Oracle's Developer Environment, skip to step 3.
+*If you would like to leverage your own HR datasets sourced from Oracle's Developer Environment, then begin at step 1. If you would like to leverage the CSV files already provided from the HR Database here, but leverage your own endpoint skip to step 3. If you would prefer to leverage this Github as the source of HR data records skip to step 4.
+
 1. Use the "Export HR to CSV Script.sql" script to export all HR tables to CSV in your desired location from within Oracle SQL Developer on your Oracle Developer VM. 
-2. Upload all CSVs to your own personal Github repository or local location that can be accessed to import the data into Neo4j.
-3. Creat a new, local database by selecting “Add” > “Local DBMS” within Neo4j Desktop application
+2. Upload all CSVs to a local or public location that can be accessed to import the data into Neo4j.
+3. Creat a new, local database by selecting “Add” > “Local DBMS” within your downloaded, Neo4j Desktop application.
 4. Copy and paste the "HR Cypher Script" in the New Window and Query editor that has opened. You can choose to execute this script all at once, or in a logical order. This script includes the following:
 
    4a. Generate node labels for each table in the HR database and loads individual nodes (records) corresponding to each node label leveraging the CSV exports from Step 1
