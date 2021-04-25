@@ -94,20 +94,20 @@ MATCH
   (l:loc),
   (c:country)
 WHERE l.country_id=c.country_id
-CREATE (l)-[r2:resides_in]->(c);
+CREATE (l)-[r:resides_in]->(c);
 
 //country and region relationship
 MATCH
   (c:country),
   (r:region)
 WHERE c.region_id=r.region_id
-CREATE (c)-[r:located_in]->(r);
+CREATE (c)-[r2:located_in]->(r);
 
 MATCH
   (r:region),
   (c:country)
 WHERE r.region_id=c.region_id
-CREATE (r)-[r:contains]->(c);
+CREATE (r)-[r2:contains]->(c);
 
 //department and location relationship
 MATCH
