@@ -59,29 +59,22 @@ MERGE (r:region {region_id: row.REGION_ID})
     r.region_name = row.REGION_NAME;
 
 //Ensure lookup of nodes is optimized, create indexes for any node properties used in the lookups
-- CREATE INDEX c_country_id FOR (c:country) ON (c.country_id);
-- CREATE INDEX c_region_id FOR (c:country) ON (c.region_id);
-
-- CREATE INDEX d_dept_id FOR (d:dept) ON (d.dept_id);
-- CREATE INDEX d_manager_id FOR (d:dept) ON (d.manager_id);
-- CREATE INDEX d_loc_id FOR (d:dept) ON (d.location_id);
-
+CREATE INDEX c_country_id FOR (c:country) ON (c.country_id);
+CREATE INDEX c_region_id FOR (c:country) ON (c.region_id);
+CREATE INDEX d_dept_id FOR (d:dept) ON (d.dept_id);
+CREATE INDEX d_manager_id FOR (d:dept) ON (d.manager_id);
+CREATE INDEX d_loc_id FOR (d:dept) ON (d.location_id);
 CREATE INDEX e_emp_id FOR (e:emp) ON (e.emp_id);
 CREATE INDEX e_job_id FOR (e:emp) ON (e.job_id);
-- CREATE INDEX e_manager_id FOR (e:emp) ON (e.manager_id);
-- CREATE INDEX e_dept_id FOR (e:emp) ON (e.dept_id);
-
+CREATE INDEX e_manager_id FOR (e:emp) ON (e.manager_id);
+CREATE INDEX e_dept_id FOR (e:emp) ON (e.dept_id);
 CREATE INDEX h_emp_id FOR (h:jhist) ON (h.emp_id);
 CREATE INDEX h_job_id FOR (h:jhist) ON (h.job_id);
-- CREATE INDEX h_dept_id FOR (h:jhist) ON (h.dept_id);
-
+CREATE INDEX h_dept_id FOR (h:jhist) ON (h.dept_id);
 CREATE INDEX j_job_id FOR (j:job) ON (j.job_id);
-
-- CREATE INDEX l_loc_id FOR (l:loc) ON (l.loc_id);
-- CREATE INDEX l_country_id FOR (l:loc) ON (l.country_id);
-
-- CREATE INDEX r_region_id FOR (r:region) ON (r.region_id);
-
+CREATE INDEX l_loc_id FOR (l:loc) ON (l.loc_id);
+CREATE INDEX l_country_id FOR (l:loc) ON (l.country_id);
+CREATE INDEX r_region_id FOR (r:region) ON (r.region_id);
 CALL db.awaitIndexes();
 
 
