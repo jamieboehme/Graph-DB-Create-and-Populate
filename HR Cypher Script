@@ -33,7 +33,7 @@ MERGE (h:jhist {emp_id: row.EMPLOYEE_ID})
   ON CREATE SET 
     h.emp_id = row.EMPLOYEE_ID,
     h.job_id = row.JOB_ID,
-    h.dept_id = row.DEPARTMENT_ID
+    h.dept_id = row.DEPARTMENT_ID,
     h.end_date = row.END_DATE;
 
 // Create job node
@@ -77,6 +77,9 @@ CREATE INDEX l_country_id FOR (l:loc) ON (l.country_id);
 CREATE INDEX r_region_id FOR (r:region) ON (r.region_id);
 CALL db.awaitIndexes();
 
+//Visualize Schema
+call db.schema.visualization;
+
 
 //Create Relationships
 
@@ -85,96 +88,96 @@ MATCH
   (c:country),
   (l:loc)
 WHERE c.country_id=l.country_id
-CREATE (c)-[r:contains]->(l)
+CREATE (c)-[r:contains]->(l);
 
 MATCH
   (l:loc),
   (c:country)
 WHERE l.country_id=c.country_id
-CREATE (l)-[r2:resides_in]->(c)
+CREATE (l)-[r2:resides_in]->(c);
 
 //country and region relationship
 MATCH
   (c:country),
   (r:region)
 WHERE c.region_id=r.region_id
-CREATE (c)-[r:located_in]->(r)
+CREATE (c)-[r:located_in]->(r);
 
 MATCH
   (r:region),
   (c:country)
 WHERE r.region_id=c.region_id
-CREATE (r)-[r:contains]->(c)
+CREATE (r)-[r:contains]->(c);
 
 //department and location relationship
 MATCH
   (d:dept),
   (l:loc)
 WHERE d.location_id=l.loc_id
-CREATE (d)-[r:located_in]->(l)
+CREATE (d)-[r:located_in]->(l);
 
 MATCH
   (l:loc),
   (d:dept)
 WHERE l.loc_id=d.location_id
-CREATE (l)-[r:contains]->(d)
+CREATE (l)-[r:contains]->(d);
 
 //department and employee relationship
 MATCH
   (d:dept),
   (e:emp)
 WHERE d.manager_id=e.emp_id
-CREATE (d)-[r:managed_by]->(e)
+CREATE (d)-[r:managed_by]->(e);
 
 MATCH
   (e:emp),
   (d:dept)
 WHERE e.emp_id=d.manager_id
-CREATE (e)-[r:manages]->(d)
+CREATE (e)-[r:manages]->(d);
 
 //employee history and employee relationship
 MATCH
   (h:jhist),
   (e:emp)
 WHERE e.emp_id=h.emp_id
-CREATE (h)-[r:previously_held_by]->(e)
+CREATE (h)-[r:previously_held_by]->(e);
 
 MATCH
   (e:emp),
   (h:jhist)
 WHERE e.emp_id=h.emp_id
-CREATE (e)-[r:previously_held_job]->(h)
+CREATE (e)-[r:previously_held_job]->(h);
 
 //employee and manager relationship
 MATCH
   (m:emp),
   (e:emp)
 WHERE m.manager_id=e.emp_id
-CREATE (m)-[r:managed_by]->(e)
+CREATE (m)-[r:managed_by]->(e);
 
 MATCH
   (e:emp),
   (m:emp)
 WHERE e.emp_id=m.manager_id
-CREATE (e)-[r:manages]->(m)
+CREATE (e)-[r:manages]->(m);
 
 //employee and job relationship
 MATCH
   (j:job),
   (e:emp)
 WHERE  j.job_id=e.job_id
-CREATE (j)-[r:held_by]->(e)
+CREATE (j)-[r:held_by]->(e);
 
 MATCH
   (e:emp),
   (j:job)
 WHERE e.job_id=j.job_id
-CREATE (e)-[r:holds]->(j)
+CREATE (e)-[r:holds]->(j);
 
 //Helpful queries 
 
 //query to visualize relationships between nodes
-call db.schema.visualization
+call db.schema.visualization;
 
 //query for what kind of nodes exist and some property and relationship information
 MATCH (n) WHERE rand() <= 1
@@ -186,32 +189,32 @@ min(size(keys(n))) as Min_PropertyCount,
 max(size(keys(n))) as Max_PropertyCount,
 avg(size( (n)-[]-() ) ) as Avg_RelationshipCount,
 min(size( (n)-[]-() ) ) as Min_RelationshipCount,
-max(size( (n)-[]-() ) ) as Max_RelationshipCount
+max(size( (n)-[]-() ) ) as Max_RelationshipCount;
 
 // query to visualize some specific data and their relationships
 //n1 is first node and n2 is second node created
-MATCH (n1)-[r]->(n2)  RETURN r, n1, n2 LIMIT 50
+MATCH (n1)-[r]->(n2)  RETURN r, n1, n2 LIMIT 50;
 
 //query to see all existing DB relationships
-call db.relationshipTypes()
+call db.relationshipTypes();
 
 //sample query for Uniqueness of Property within employee node
 MATCH (e:emp) 
 RETURN count(DISTINCT e.f_name) AS DistinctName, 
        count(e.f_name) AS TotalUser, 
-       100*count(DISTINCT e.f_name)/count(e.f_name) AS Unique
+       100*count(DISTINCT e.f_name)/count(e.f_name) AS Unique;
 
 //sample query to see relationships to region 2
 match(r:region)
 where r.region_id = '2'
-return (r)-[]-() limit 25
+return (r)-[]-() limit 25;
 
 //sample query to see immediate relationships with Steven
 match(e:emp)
 where e.f_name = 'Steven'
-return (e)-[]-()-[]-() limit 25
+return (e)-[]-()-[]-() limit 25;
 
 //sample query to see 2-step relationships with Steven
 match(e:emp)
 where e.f_name = 'Steven'
-return (e)-[]-()-[]-() limit 25
+return (e)-[]-()-[]-() limit 25;
